@@ -31,11 +31,14 @@ public class GridManager : MonoBehaviour
 
         tileDataMap[cellPos].state = state;
 
-        tilemap.SetTile(cellPos, state switch {
+        var tileToSet = state switch {
             TileState.Tilled  => tilledTile,
             TileState.Watered => wateredTile,
             TileState.Normal => normalTile
-        });
+        };
+        tilemap.SetTile(cellPos, tileToSet);
+        Debug.Log($"Tilemap position: {tilemap.transform.position}");
+        Debug.Log($"Tilemap bounds: {tilemap.cellBounds}");
     }
 
     public TileData GetTile(Vector3Int cellPos)
@@ -58,7 +61,6 @@ public class GridManager : MonoBehaviour
 
             if (tile.state == TileState.Watered)
             {
-                tile.crop?.TryGrow();
                 SetTileState(cellPos, TileState.Tilled);
             }
         }

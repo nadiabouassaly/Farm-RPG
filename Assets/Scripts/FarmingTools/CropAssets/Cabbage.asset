@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9810d2011fe008fa9b2a874955418882, type: 3}
+  m_Name: Cabbage
+  m_EditorClassIdentifier: Assembly-CSharp::CropData
+  cropName: Cabbage
+  seedItem: {fileID: 11400000, guid: 85f2b29f7efe28d8da244d5794f2c990, type: 2}
+  cropItem: {fileID: 11400000, guid: 85f2b29f7efe28d8da244d5794f2c990, type: 2}
+  daysToGrow: 6
+  yield: 2
+  growthPhaseSprites:
+  - {fileID: 5731977589800508529, guid: 450e03a5c0b8068d69540cf5c6afe056, type: 3}
+  - {fileID: 1774549293329851621, guid: 9d481e8b2204504618756b93147197b2, type: 3}
+  - {fileID: 7905260976360909728, guid: bb99a0f982ed041de9191ca58d641e9b, type: 3}
+  - {fileID: -2719203434195173934, guid: e17dde275f6fb85abbcc293f7d386f04, type: 3}
+  - {fileID: 2985232015076406287, guid: 0f9ffbc5cc09976aca569e3cd7ea5f73, type: 3}

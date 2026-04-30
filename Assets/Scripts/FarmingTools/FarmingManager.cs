@@ -10,7 +10,7 @@ public class FarmingManager : MonoBehaviour
     Inventory inventory;
     [SerializeField] private GameObject cropPrefab;
     [HideInInspector] public bool disabled;
-    public UnityEvent interact;
+    public Camera realCamera;
     void Awake()
     {
         if (Instance != null && Instance != this)
@@ -21,7 +21,6 @@ public class FarmingManager : MonoBehaviour
 
         Instance = this;
         DontDestroyOnLoad(gameObject);
-        interact = new UnityEvent();
     }
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -34,15 +33,14 @@ public class FarmingManager : MonoBehaviour
     void Update()
     {
         if (disabled) return;
-        if (Mouse.current == null) return;
+        if (Keyboard.current == null) return;
 
         if (Keyboard.current.eKey.wasPressedThisFrame)
         {
-            interact.Invoke();
             var slot = inventory.slots[hotbar.selectedIndex];
             if (slot != null && !slot.IsEmpty() && slot.item.itemType == ItemType.Crop)
                 Plant();
-            else
+            else if (slot.item.itemType == ItemType.Tool)
                 UseTool();
         }
     }
@@ -50,7 +48,7 @@ public class FarmingManager : MonoBehaviour
     void Plant()
     {
         Vector2 mousePos = Mouse.current.position.ReadValue();
-        Vector3 worldPos = Camera.main.ScreenToWorldPoint(new Vector3(mousePos.x, mousePos.y, 0f));
+        Vector3 worldPos = realCamera.ScreenToWorldPoint(new Vector3(mousePos.x, mousePos.y, 0f));
         worldPos.z = 0;
         Vector3Int cellPos = GridManager.Instance.WorldToCell(worldPos);
         var tile = GridManager.Instance.GetTile(cellPos);
@@ -101,8 +99,11 @@ public class FarmingManager : MonoBehaviour
         if (!StaminaSystem.Instance.TrySpend(item.staminaCost)) return;
 
         Vector2 mousePos = Mouse.current.position.ReadValue();
-        Vector3 worldPos = Camera.main.ScreenToWorldPoint(new Vector3(mousePos.x, mousePos.y, 0f));
+        Vector3 worldPos = realCamera.ScreenToWorldPoint(new Vector3(mousePos.x, mousePos.y, 0f));
+        worldPos.z = 0;
         Vector3Int cellPos = GridManager.Instance.WorldToCell(worldPos);
+        Debug.Log(worldPos);
+        Debug.Log(cellPos);
         var tile = GridManager.Instance.GetTile(cellPos);
 
         switch (item.toolType)
@@ -110,6 +111,7 @@ public class FarmingManager : MonoBehaviour
             case ToolType.Hoe:
                 if (tile == null || tile.state == TileState.Normal)
                     GridManager.Instance.SetTileState(cellPos, TileState.Tilled);
+                    Debug.Log($"Hoe used. Tile: {tile}, State: {tile?.state}");
                 break;
 
             case ToolType.WateringCan:
