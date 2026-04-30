@@ -2,15 +2,15 @@
     "TimeData": {
         "DayOfTheWeek": 0,
         "Day": "Monday",
-        "DayCounter": 100,
+        "DayCounter": 1,
         "SeasonNumber": 0,
-        "Season": "Summer",
-        "Hour": 8.0,
-        "Minute": 45.0,
-        "Second": 0.1147897019982338,
+        "Season": "Spring",
+        "Hour": 6.0,
+        "Minute": 3.0,
+        "Second": 0.6654908657073975,
         "TimeSpeed": 1.0
     },
-    "Money": 1000,
+    "Money": 10,
     "Items": [
         {
             "Name": "Beetroot Seed",
@@ -192,7 +192,7 @@
         {
             "Name": "Beetroot Seed",
             "Category": "Seeds",
-            "Quantity": 5,
+            "Quantity": 0,
             "BuyPrice": 10,
             "SellPrice": 5,
             "Season": [
@@ -204,7 +204,7 @@
         {
             "Name": "Cabbage Seed",
             "Category": "Seeds",
-            "Quantity": 8,
+            "Quantity": 0,
             "BuyPrice": 12,
             "SellPrice": 6,
             "Season": [
@@ -226,7 +226,7 @@
         {
             "Name": "Cauliflower Seed",
             "Category": "Seeds",
-            "Quantity": 11,
+            "Quantity": 0,
             "BuyPrice": 15,
             "SellPrice": 7,
             "Season": [
@@ -236,7 +236,7 @@
         {
             "Name": "Kale Seed",
             "Category": "Seeds",
-            "Quantity": 6,
+            "Quantity": 0,
             "BuyPrice": 14,
             "SellPrice": 7,
             "Season": [
@@ -247,7 +247,7 @@
         {
             "Name": "Parsnip Seed",
             "Category": "Seeds",
-            "Quantity": 9,
+            "Quantity": 0,
             "BuyPrice": 9,
             "SellPrice": 4,
             "Season": [
@@ -257,7 +257,7 @@
         {
             "Name": "Potato Seed",
             "Category": "Seeds",
-            "Quantity": 14,
+            "Quantity": 0,
             "BuyPrice": 11,
             "SellPrice": 5,
             "Season": [
@@ -277,7 +277,7 @@
         {
             "Name": "Radish Seed",
             "Category": "Seeds",
-            "Quantity": 11,
+            "Quantity": 0,
             "BuyPrice": 7,
             "SellPrice": 3,
             "Season": [
@@ -310,7 +310,7 @@
         {
             "Name": "Beetroot",
             "Category": "Plant Products",
-            "Quantity": 9,
+            "Quantity": 0,
             "BuyPrice": 20,
             "SellPrice": 10,
             "Season": [
@@ -322,7 +322,7 @@
         {
             "Name": "Cabbage",
             "Category": "Plant Products",
-            "Quantity": 14,
+            "Quantity": 0,
             "BuyPrice": 24,
             "SellPrice": 12,
             "Season": [
@@ -344,7 +344,7 @@
         {
             "Name": "Cauliflower",
             "Category": "Plant Products",
-            "Quantity": 7,
+            "Quantity": 0,
             "BuyPrice": 30,
             "SellPrice": 15,
             "Season": [
@@ -354,7 +354,7 @@
         {
             "Name": "Kale",
             "Category": "Plant Products",
-            "Quantity": 7,
+            "Quantity": 0,
             "BuyPrice": 28,
             "SellPrice": 14,
             "Season": [
@@ -365,7 +365,7 @@
         {
             "Name": "Parsnip",
             "Category": "Plant Products",
-            "Quantity": 15,
+            "Quantity": 0,
             "BuyPrice": 18,
             "SellPrice": 9,
             "Season": [
@@ -375,7 +375,7 @@
         {
             "Name": "Potato",
             "Category": "Plant Products",
-            "Quantity": 12,
+            "Quantity": 0,
             "BuyPrice": 22,
             "SellPrice": 11,
             "Season": [
@@ -395,7 +395,7 @@
         {
             "Name": "Radish",
             "Category": "Plant Products",
-            "Quantity": 5,
+            "Quantity": 0,
             "BuyPrice": 14,
             "SellPrice": 7,
             "Season": [
@@ -428,7 +428,7 @@
         {
             "Name": "Chicken",
             "Category": "Animals",
-            "Quantity": 13,
+            "Quantity": 0,
             "BuyPrice": 100,
             "SellPrice": 50,
             "Season": [
@@ -441,7 +441,7 @@
         {
             "Name": "Cow",
             "Category": "Animals",
-            "Quantity": 15,
+            "Quantity": 0,
             "BuyPrice": 300,
             "SellPrice": 150,
             "Season": [
@@ -454,7 +454,7 @@
         {
             "Name": "Sheep",
             "Category": "Animals",
-            "Quantity": 13,
+            "Quantity": 0,
             "BuyPrice": 250,
             "SellPrice": 125,
             "Season": [
@@ -467,7 +467,7 @@
         {
             "Name": "Pig",
             "Category": "Animals",
-            "Quantity": 12,
+            "Quantity": 0,
             "BuyPrice": 200,
             "SellPrice": 100,
             "Season": [
@@ -480,7 +480,7 @@
         {
             "Name": "Egg",
             "Category": "Animal Products",
-            "Quantity": 13,
+            "Quantity": 0,
             "BuyPrice": 10,
             "SellPrice": 5,
             "Season": [
@@ -493,7 +493,7 @@
         {
             "Name": "Milk",
             "Category": "Animal Products",
-            "Quantity": 8,
+            "Quantity": 0,
             "BuyPrice": 20,
             "SellPrice": 10,
             "Season": [
@@ -506,7 +506,7 @@
         {
             "Name": "Fish",
             "Category": "Animal Products",
-            "Quantity": 11,
+            "Quantity": 0,
             "BuyPrice": 15,
             "SellPrice": 7,
             "Season": [
@@ -519,7 +519,7 @@
         {
             "Name": "Hammer",
             "Category": "Tools",
-            "Quantity": 5,
+            "Quantity": 0,
             "BuyPrice": 50,
             "SellPrice": 25,
             "Season": [
@@ -532,7 +532,7 @@
         {
             "Name": "Shovel",
             "Category": "Tools",
-            "Quantity": 15,
+            "Quantity": 0,
             "BuyPrice": 40,
             "SellPrice": 20,
             "Season": [
@@ -545,7 +545,7 @@
         {
             "Name": "Axe",
             "Category": "Tools",
-            "Quantity": 5,
+            "Quantity": 0,
             "BuyPrice": 60,
             "SellPrice": 30,
             "Season": [
@@ -558,7 +558,7 @@
         {
             "Name": "Pickaxe",
             "Category": "Tools",
-            "Quantity": 5,
+            "Quantity": 0,
             "BuyPrice": 70,
             "SellPrice": 35,
             "Season": [
@@ -571,7 +571,7 @@
         {
             "Name": "Sword",
             "Category": "Tools",
-            "Quantity": 12,
+            "Quantity": 0,
             "BuyPrice": 80,
             "SellPrice": 40,
             "Season": [
@@ -584,7 +584,7 @@
         {
             "Name": "Fishing Rod",
             "Category": "Tools",
-            "Quantity": 11,
+            "Quantity": 0,
             "BuyPrice": 90,
             "SellPrice": 45,
             "Season": [
