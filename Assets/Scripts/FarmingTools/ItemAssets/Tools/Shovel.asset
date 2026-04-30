@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ItemData
   itemName: Hoe
   itemType: 1
-  itemIcon: {fileID: -3766519690804746565, guid: 3ee240e2ff213a63ebdb8d1f70c8e551, type: 3}
+  itemIcon: {fileID: -3766519690804746565, guid: 2ac749af34f283443863425bde6a9da9, type: 3}
   maxStackSize: 1
   description: definitely not a shovel
   toolType: 1

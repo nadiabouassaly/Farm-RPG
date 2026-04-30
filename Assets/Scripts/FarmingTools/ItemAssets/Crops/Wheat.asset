@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ItemData
   itemName: Wheat
   itemType: 0
-  itemIcon: {fileID: -666870068449178133, guid: 277f41582b5513b53bc672c37d0c5d5e, type: 3}
+  itemIcon: {fileID: -666870068449178133, guid: bc2bc3c59def4474895e478f81a0fe8b, type: 3}
   maxStackSize: 64
   description: wheaaaaaaat
   toolType: 0

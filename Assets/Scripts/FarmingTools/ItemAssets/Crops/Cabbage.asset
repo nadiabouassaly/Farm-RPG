@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ItemData
   itemName: 
   itemType: 0
-  itemIcon: {fileID: -2785533952315014158, guid: a01a62492bcb3befd806df6796ea1ece, type: 3}
+  itemIcon: {fileID: -2785533952315014158, guid: 1b3b30f88caa2da4a96416f01c449270, type: 3}
   maxStackSize: 64
   description: cabbag
   toolType: 0

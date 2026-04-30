@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ItemData
   itemName: Carrot
   itemType: 0
-  itemIcon: {fileID: -3829704256182829468, guid: 840b249755d5e6f228b55b11c8e3fc4d, type: 3}
+  itemIcon: {fileID: -3829704256182829468, guid: 4a27f962d44973f4e82ee9eda85d6bc4, type: 3}
   maxStackSize: 64
   description: ts carrot lowkenuinely pmo
   toolType: 0

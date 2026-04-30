@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ItemData
   itemName: Sickle
   itemType: 1
-  itemIcon: {fileID: -3753825769889500098, guid: ea4839de2664ee91b86be52da8ff9740, type: 3}
+  itemIcon: {fileID: -3753825769889500098, guid: 1c2f2191c77b33f439b189d804555ace, type: 3}
   maxStackSize: 1
   description: thing that harvests (tuff)
   toolType: 3

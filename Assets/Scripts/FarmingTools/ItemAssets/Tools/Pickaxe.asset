@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ItemData
   itemName: Pickaxe
   itemType: 1
-  itemIcon: {fileID: 8959118705387878318, guid: 1eb8a3eae14be1538a401a99a3fb51db, type: 3}
+  itemIcon: {fileID: 8959118705387878318, guid: 4013f04885dd7ce42ba843e458e6b18e, type: 3}
   maxStackSize: 1
   description: 
   toolType: 5

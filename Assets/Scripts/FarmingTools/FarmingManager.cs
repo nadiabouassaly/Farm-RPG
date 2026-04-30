@@ -109,13 +109,12 @@ public class FarmingManager : MonoBehaviour
         switch (item.toolType)
         {
             case ToolType.Hoe:
-                if (tile == null || tile.state == TileState.Normal)
+                if ((tile == null || tile.state == TileState.Normal) && GridManager.Instance.tilemap.cellBounds.Contains(cellPos))
                     GridManager.Instance.SetTileState(cellPos, TileState.Tilled);
-                    Debug.Log($"Hoe used. Tile: {tile}, State: {tile?.state}");
                 break;
 
             case ToolType.WateringCan:
-                if (tile != null && (tile.state == TileState.Tilled || tile.crop != null))
+                if ((tile != null && (tile.state == TileState.Tilled || tile.crop != null)) && GridManager.Instance.tilemap.cellBounds.Contains(cellPos))
                     if (tile.crop != null)
                     {
                         tile.crop.wateredThisDay = true;

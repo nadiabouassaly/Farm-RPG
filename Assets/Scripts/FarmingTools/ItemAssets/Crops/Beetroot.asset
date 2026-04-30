@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ItemData
   itemName: Beetroot
   itemType: 0
-  itemIcon: {fileID: 980901043704405067, guid: d7dcdecaca2d74cb4a2d6b1320054789, type: 3}
+  itemIcon: {fileID: 980901043704405067, guid: daaf72bad99a50f46b3a99dd9bd1fe46, type: 3}
   maxStackSize: 64
   description: A beetroot
   toolType: 0

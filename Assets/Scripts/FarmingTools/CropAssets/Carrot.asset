@@ -18,8 +18,8 @@ MonoBehaviour:
   daysToGrow: 10
   yield: 20
   growthPhaseSprites:
-  - {fileID: -110202509705018397, guid: e0c6e6d4d3f1b5e23bbef33bb998c425, type: 3}
-  - {fileID: -4589858782877362093, guid: 0c19c7c6589c82a908dc006dac68630e, type: 3}
-  - {fileID: -1155486168486944139, guid: d99fc4860f174f4b3a4ca4466fe1e103, type: 3}
-  - {fileID: -3616871226989106798, guid: 979819f3a840df82aa4b6aa1620ff8ad, type: 3}
-  - {fileID: 2288580185458606559, guid: f4076e96da0fff9ac9607d68068dc732, type: 3}
+  - {fileID: -110202509705018397, guid: bd0cdcfa97badce43b8b907c3966acaa, type: 3}
+  - {fileID: -4589858782877362093, guid: 19e130314b653f44391a0e3a9ebce799, type: 3}
+  - {fileID: -1155486168486944139, guid: 49cb3ece02148774dad455b72079f0cf, type: 3}
+  - {fileID: -3616871226989106798, guid: 7a14aaaa91faff74cb1a8900abf9bc58, type: 3}
+  - {fileID: 2288580185458606559, guid: bb5d69a1cb832184ba1c1af917d02248, type: 3}
