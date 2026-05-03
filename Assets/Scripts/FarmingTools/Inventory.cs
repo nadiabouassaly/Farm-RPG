@@ -177,4 +177,18 @@ public class Inventory : MonoBehaviour
             slots[i].quantity = slotData.quantity;
         }
     }
+
+    public void IncreaseMoney(int amount)
+    {
+        Money += amount;
+    }
+    public void DecreaseMoney(int amount)
+    {
+        Money -= amount;
+    }
+
+    public void SetMoney(int amount)
+    {
+        Money = amount;
+    }
 }

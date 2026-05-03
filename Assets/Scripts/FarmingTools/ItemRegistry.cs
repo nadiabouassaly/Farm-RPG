@@ -10,7 +10,8 @@ public class ItemRegistry : ScriptableObject
     private Dictionary<string, ItemData> _lookup;
 
     public void Initialize()
-    {
+    {   
+        if (_lookup != null ) return;
         _lookup = new Dictionary<string, ItemData>();
         foreach (var item in allItems)
             _lookup[item.itemName] = item;
