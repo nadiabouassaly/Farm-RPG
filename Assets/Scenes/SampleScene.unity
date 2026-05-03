@@ -7664,9 +7664,9 @@ Camera:
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
-    y: 0.0630303
+    y: 0
     width: 1
-    height: 0.8727273
+    height: 1
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 60
@@ -8271,6 +8271,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Inventory
   inventorySize: 36
+  registry: {fileID: 11400000, guid: cabeaada5836b8ef2aeeec5af72a5424, type: 2}
+  Money: 0
 --- !u!4 &807890552
 Transform:
   m_ObjectHideFlags: 0
@@ -70516,6 +70518,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6918382450077517806, guid: d0987e0963743324a95aece44be58e62, type: 3}
+      propertyPath: registry
+      value: 
+      objectReference: {fileID: 11400000, guid: cabeaada5836b8ef2aeeec5af72a5424, type: 2}
     - target: {fileID: 7290666545954879747, guid: d0987e0963743324a95aece44be58e62, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
