@@ -32,8 +32,7 @@ public class InventoryUI : MonoBehaviour
     {
         if (Keyboard.current.tabKey.wasPressedThisFrame)
         {
-            panel.SetActive(!panel.activeSelf);
-            FarmingManager.Instance.disabled = !FarmingManager.Instance.disabled;
+            Toggle();
         }
     }
 
@@ -42,5 +41,11 @@ public class InventoryUI : MonoBehaviour
         List<InventorySlot> slots = Inventory.Instance.slots;
         for (int i = 0; i < slotUIs.Count; i++)
             slotUIs[i].Refresh(slots[i]);
+    }
+
+    public void Toggle()
+    {
+        panel.SetActive(!panel.activeSelf);
+        FarmingManager.Instance.disabled = !FarmingManager.Instance.disabled;
     }
 }

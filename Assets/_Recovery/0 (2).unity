@@ -2744,17 +2744,6 @@ Sprite:
   m_Bones: []
   m_ScriptableObjects: []
   m_SpriteID: 
---- !u!114 &337610710 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1130017385960137601, guid: 368cf3979880a5f95a4f680544bb6e9a, type: 3}
-  m_PrefabInstance: {fileID: 1106585865}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ea49dbf24a6aafbbaa1e934c231d996b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::InventoryUI
 --- !u!1 &370440417
 GameObject:
   m_ObjectHideFlags: 0
@@ -7675,9 +7664,9 @@ Camera:
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
-    y: 0.0631068
-    width: 1
-    height: 0.8737864
+    y: -0.18750001
+    width: 0
+    height: 0.37500003
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 60
@@ -15805,6 +15794,11 @@ TilemapCollider2D:
   m_MaximumTileChangeCount: 1000
   m_ExtrusionFactor: 0
   m_UseDelaunayMesh: 0
+--- !u!1 &1576288658 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1221554766868373695, guid: 368cf3979880a5f95a4f680544bb6e9a, type: 3}
+  m_PrefabInstance: {fileID: 1106585865}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1589447889
 GameObject:
   m_ObjectHideFlags: 0
@@ -70389,16 +70383,24 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3869519356821033173, guid: d0987e0963743324a95aece44be58e62, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 3869519356821033173, guid: d0987e0963743324a95aece44be58e62, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 337610710}
+      objectReference: {fileID: 1576288658}
     - target: {fileID: 3869519356821033173, guid: d0987e0963743324a95aece44be58e62, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: Toggle
+      value: SetActive
       objectReference: {fileID: 0}
     - target: {fileID: 3869519356821033173, guid: d0987e0963743324a95aece44be58e62, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: InventoryUI, Assembly-CSharp
+      value: UnityEngine.GameObject, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 3869519356821033173, guid: d0987e0963743324a95aece44be58e62, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_BoolArgument
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3983524473144054196, guid: d0987e0963743324a95aece44be58e62, type: 3}
       propertyPath: m_AnchorMax.y
