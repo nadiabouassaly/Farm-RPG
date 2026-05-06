@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9810d2011fe008fa9b2a874955418882, type: 3}
+  m_Name: Parsnip
+  m_EditorClassIdentifier: Assembly-CSharp::CropData
+  cropName: Parsnip
+  seedItem: {fileID: 11400000, guid: 6baeb5b15bc750a64bd5341af48cc7e0, type: 2}
+  cropItem: {fileID: 11400000, guid: 6baeb5b15bc750a64bd5341af48cc7e0, type: 2}
+  daysToGrow: 8
+  yield: 4
+  growthPhaseSprites:
+  - {fileID: -2529147925417484485, guid: fcd6a005d6e1665499a202dce2c5f6f5, type: 3}
+  - {fileID: -1257292296832119937, guid: 7c283fc7d2d54ef4fa35279add3c2afd, type: 3}
+  - {fileID: 1232169890986151422, guid: 1bbd224b1e86edc4aabe3670f509cf5c, type: 3}
+  - {fileID: -4735647015033955170, guid: bb956813a2bc33448a167ad1029095c4, type: 3}
+  - {fileID: -3915887848083586579, guid: e00fa55ba2965a94b882ed51ed2ab7be, type: 3}

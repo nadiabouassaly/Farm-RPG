@@ -12,10 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d85e335db0ef30c10aff88f44a7bf9f3, type: 3}
   m_Name: WateringCan
   m_EditorClassIdentifier: Assembly-CSharp::ItemData
-  itemName: 
+  itemName: Watering Can
   itemType: 1
   itemIcon: {fileID: 8509550459451208454, guid: 743aad9edf4027d41931acd650dcbb46, type: 3}
   maxStackSize: 1
   description: ts waters ur crops
   toolType: 2
   staminaCost: 2.5
+  Category: Tools

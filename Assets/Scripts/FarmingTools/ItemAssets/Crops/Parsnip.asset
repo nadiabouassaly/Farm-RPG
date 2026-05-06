@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d85e335db0ef30c10aff88f44a7bf9f3, type: 3}
-  m_Name: Wheat
+  m_Name: Parsnip
   m_EditorClassIdentifier: Assembly-CSharp::ItemData
-  itemName: Wheat
+  itemName: Parsnip
   itemType: 0
-  itemIcon: {fileID: -666870068449178133, guid: bc2bc3c59def4474895e478f81a0fe8b, type: 3}
+  itemIcon: {fileID: 3542111612965803809, guid: 06deac1f556aaa345bdcf02a0f1b0bf3, type: 3}
   maxStackSize: 64
-  description: wheaaaaaaat
+  description: ts tastes like ahh
   toolType: 0
   staminaCost: 0
   Category: Plant Products

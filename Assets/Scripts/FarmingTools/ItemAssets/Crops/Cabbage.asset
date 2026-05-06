@@ -12,10 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d85e335db0ef30c10aff88f44a7bf9f3, type: 3}
   m_Name: Cabbage
   m_EditorClassIdentifier: Assembly-CSharp::ItemData
-  itemName: 
+  itemName: Cabbage
   itemType: 0
   itemIcon: {fileID: -2785533952315014158, guid: 1b3b30f88caa2da4a96416f01c449270, type: 3}
   maxStackSize: 64
   description: cabbag
   toolType: 0
   staminaCost: 0
+  Category: Plant Products

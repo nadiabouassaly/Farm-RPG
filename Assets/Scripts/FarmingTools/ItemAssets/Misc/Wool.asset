@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d85e335db0ef30c10aff88f44a7bf9f3, type: 3}
-  m_Name: Wheat
+  m_Name: Wool
   m_EditorClassIdentifier: Assembly-CSharp::ItemData
-  itemName: Wheat
-  itemType: 0
-  itemIcon: {fileID: -666870068449178133, guid: bc2bc3c59def4474895e478f81a0fe8b, type: 3}
+  itemName: Wool
+  itemType: 2
+  itemIcon: {fileID: 5346049905554965891, guid: 0908ab3293985694faf16026babae7d2, type: 3}
   maxStackSize: 64
-  description: wheaaaaaaat
+  description: Soft sheep wool.
   toolType: 0
   staminaCost: 0
-  Category: Plant Products
+  Category: Animal Products

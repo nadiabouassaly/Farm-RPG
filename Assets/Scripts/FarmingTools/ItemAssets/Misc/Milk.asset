@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d85e335db0ef30c10aff88f44a7bf9f3, type: 3}
-  m_Name: Wheat
+  m_Name: Milk
   m_EditorClassIdentifier: Assembly-CSharp::ItemData
-  itemName: Wheat
-  itemType: 0
-  itemIcon: {fileID: -666870068449178133, guid: bc2bc3c59def4474895e478f81a0fe8b, type: 3}
+  itemName: Milk
+  itemType: 2
+  itemIcon: {fileID: 1784676053158415428, guid: 97fd078aa098a1f44b608c913e60a41b, type: 3}
   maxStackSize: 64
-  description: wheaaaaaaat
+  description: Fresh cow milk.
   toolType: 0
   staminaCost: 0
-  Category: Plant Products
+  Category: Animal Products

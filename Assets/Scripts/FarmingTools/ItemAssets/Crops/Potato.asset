@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d85e335db0ef30c10aff88f44a7bf9f3, type: 3}
-  m_Name: Wheat
+  m_Name: Potato
   m_EditorClassIdentifier: Assembly-CSharp::ItemData
-  itemName: Wheat
+  itemName: Potato
   itemType: 0
-  itemIcon: {fileID: -666870068449178133, guid: bc2bc3c59def4474895e478f81a0fe8b, type: 3}
+  itemIcon: {fileID: -8837905132163604103, guid: 2dba27704936ba746a1b405fdaa7c546, type: 3}
   maxStackSize: 64
-  description: wheaaaaaaat
+  description: potat
   toolType: 0
   staminaCost: 0
   Category: Plant Products

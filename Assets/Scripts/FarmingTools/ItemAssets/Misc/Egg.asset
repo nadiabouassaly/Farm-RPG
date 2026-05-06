@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d85e335db0ef30c10aff88f44a7bf9f3, type: 3}
-  m_Name: Wheat
+  m_Name: Egg
   m_EditorClassIdentifier: Assembly-CSharp::ItemData
-  itemName: Wheat
-  itemType: 0
-  itemIcon: {fileID: -666870068449178133, guid: bc2bc3c59def4474895e478f81a0fe8b, type: 3}
+  itemName: Egg
+  itemType: 2
+  itemIcon: {fileID: -9095446784922163390, guid: 9018aab4811416d4fae2be0eb4812fa8, type: 3}
   maxStackSize: 64
-  description: wheaaaaaaat
+  description: Fresh chicken egg.
   toolType: 0
   staminaCost: 0
-  Category: Plant Products
+  Category: Animal Products
