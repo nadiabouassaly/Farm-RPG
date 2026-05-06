@@ -11,7 +11,7 @@ public class PlayerInteraction : MonoBehaviour
      void Update()
      {
          UpdateFocus(FindNearest()) ;
-         if(focused != null && Keyboard.current.eKey.isPressed)
+         if(focused != null && Keyboard.current.eKey.wasPressedThisFrame)
          {
             if(focused.CanInteract())
             focused.Interact() ;

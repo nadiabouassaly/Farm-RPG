@@ -1,10 +1,10 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class player_movement : MonoBehaviour
+public class Player_movement : MonoBehaviour
 {
     Animator anim ;
-    float speed = 20f;
+    float speed = 10f;
     Rigidbody2D rb ;
     Vector2 movement;
     bool facingRight = true;

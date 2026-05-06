@@ -7664,9 +7664,9 @@ Camera:
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
-    y: 0
-    width: 1
-    height: 1
+    y: -0.18750001
+    width: 0
+    height: 0.37500003
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 60
@@ -13012,8 +13012,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b59bdd70c64354c119f3acb7903161ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Fade
+  onDissolveStart:
+    m_PersistentCalls:
+      m_Calls: []
+  onDissolveComplete:
+    m_PersistentCalls:
+      m_Calls: []
   houseParent: {fileID: 0}
-  player: {fileID: 0}
+  interior: {fileID: 0}
+  outsideHouse: {fileID: 0}
+  pressEToEnter: {fileID: 0}
+  door: {fileID: 0}
+  houseChildren: []
+  previousPosition: {x: 0, y: 0}
+  positionInside: {x: -1, y: 43}
+  rb: {fileID: 0}
+  inside: 0
+  movementScript: {fileID: 0}
 --- !u!114 &1171861714
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15514,7 +15529,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1533177170
 Transform:
   m_ObjectHideFlags: 0
@@ -16093,7 +16108,7 @@ Transform:
   m_GameObject: {fileID: 1629757241}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -8.84, y: 43.02, z: 0}
+  m_LocalPosition: {x: -9.3, y: 39.18, z: 0}
   m_LocalScale: {x: 9.5, y: 9.5, z: 9.5}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -16200,8 +16215,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b59bdd70c64354c119f3acb7903161ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
+  onDissolveStart:
+    m_PersistentCalls:
+      m_Calls: []
+  onDissolveComplete:
+    m_PersistentCalls:
+      m_Calls: []
   houseParent: {fileID: 0}
-  player: {fileID: 0}
+  interior: {fileID: 0}
+  outsideHouse: {fileID: 0}
+  pressEToEnter: {fileID: 0}
+  door: {fileID: 0}
+  houseChildren: []
+  previousPosition: {x: 0, y: 0}
+  positionInside: {x: -1, y: 43}
+  rb: {fileID: 0}
+  inside: 0
+  movementScript: {fileID: 0}
 --- !u!1 &1727051313
 GameObject:
   m_ObjectHideFlags: 0
@@ -69732,6 +69762,26 @@ Tilemap:
       m_TileObjectToInstantiateIndex: 65535
       dummyAlignment: 0
       m_AllTileFlags: 1073741825
+  - first: {x: -11, y: 39, z: 0}
+    second:
+      serializedVersion: 2
+      m_TileIndex: 3
+      m_TileSpriteIndex: 3
+      m_TileMatrixIndex: 0
+      m_TileColorIndex: 0
+      m_TileObjectToInstantiateIndex: 65535
+      dummyAlignment: 0
+      m_AllTileFlags: 1073741825
+  - first: {x: -10, y: 39, z: 0}
+    second:
+      serializedVersion: 2
+      m_TileIndex: 3
+      m_TileSpriteIndex: 3
+      m_TileMatrixIndex: 0
+      m_TileColorIndex: 0
+      m_TileObjectToInstantiateIndex: 65535
+      dummyAlignment: 0
+      m_AllTileFlags: 1073741825
   - first: {x: -9, y: 39, z: 0}
     second:
       serializedVersion: 2
@@ -69880,7 +69930,7 @@ Tilemap:
     m_Data: {fileID: 11400000, guid: 665012dc0f26348daa7a83504a1c7a0c, type: 2}
   - m_RefCount: 1
     m_Data: {fileID: 11400000, guid: f6b513b7858954ec4b174c8b4ff12ec5, type: 2}
-  - m_RefCount: 6
+  - m_RefCount: 8
     m_Data: {fileID: 11400000, guid: 8a8ed7ed01306491ba15333543ea16c7, type: 2}
   - m_RefCount: 6
     m_Data: {fileID: 11400000, guid: 0f0147106fdc9443c9ecef1218c2bb15, type: 2}
@@ -69895,7 +69945,7 @@ Tilemap:
     m_Data: {fileID: 0}
   - m_RefCount: 1
     m_Data: {fileID: -619646720, guid: 1073c9fc18ffdfd4dab3aac319de2b1b, type: 3}
-  - m_RefCount: 6
+  - m_RefCount: 8
     m_Data: {fileID: 189734576, guid: 1073c9fc18ffdfd4dab3aac319de2b1b, type: 3}
   - m_RefCount: 6
     m_Data: {fileID: 713386454, guid: 1073c9fc18ffdfd4dab3aac319de2b1b, type: 3}
@@ -69904,7 +69954,7 @@ Tilemap:
   - m_RefCount: 1
     m_Data: {fileID: 55470976, guid: 1073c9fc18ffdfd4dab3aac319de2b1b, type: 3}
   m_TileMatrixArray:
-  - m_RefCount: 12
+  - m_RefCount: 14
     m_Data:
       e00: 1
       e01: 0
@@ -69959,7 +70009,7 @@ Tilemap:
       e32: 0
       e33: 1
   m_TileColorArray:
-  - m_RefCount: 16
+  - m_RefCount: 18
     m_Data: {r: 1, g: 1, b: 1, a: 1}
   - m_RefCount: 0
     m_Data: {r: 0.7551658, g: 0.49600354, b: 0.5193853, a: 1}
