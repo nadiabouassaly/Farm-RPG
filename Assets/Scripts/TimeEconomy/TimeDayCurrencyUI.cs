@@ -35,7 +35,7 @@ public class TimeDayCurrencyUI : MonoBehaviour
         Time.text = timeSystem.getHour().ToString("00") + ":" + timeSystem.getMinute().ToString("00");
         DayCounter.text = "Day " + timeSystem.getDayCounter().ToString();
         Season.text = timeSystem.getSeason();
-        Money.text = "$ " + playerInventory.GetMoney().ToString();
+        Money.text = "$ " + Inventory.Instance.Money.ToString();
     }
 }
 
