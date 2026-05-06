@@ -150,7 +150,7 @@ public class Inventory : MonoBehaviour
     public int GetItemQuantity(string name) {
         int total = 0;
         foreach (var slot in slots) {
-            if (slot.item.name == name)
+            if (slot.item != null && slot.item.name == name)
             {
                 total += slot.quantity;
             }
