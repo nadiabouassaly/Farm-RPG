@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "NewItem", menuName = "Inventory/Item")]
@@ -10,6 +11,7 @@ public class ItemData : ScriptableObject
     public string description;
     public ToolType toolType;
     public float staminaCost;
+    public String Category;
 }
 
 public enum ItemType {Crop, Tool, Misc}

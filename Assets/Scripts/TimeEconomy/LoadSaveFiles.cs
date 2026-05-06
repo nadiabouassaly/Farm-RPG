@@ -1,6 +1,7 @@
 using NUnit.Framework;
 using UnityEngine;
 using System.Collections.Generic;
+using System;
 
 public class LoadSaveFiles : MonoBehaviour
 {
@@ -9,6 +10,7 @@ public class LoadSaveFiles : MonoBehaviour
     [SerializeField] public List<PlayerInventory.Item> playerInventory;
     [SerializeField] private List<ShopScript.ShopItem> shopInventory;
     [SerializeField] private TimeSystem timeSystem;
+    [SerializeField] public ItemRegistry registry;
 
 
     [System.Serializable]
@@ -16,8 +18,11 @@ public class LoadSaveFiles : MonoBehaviour
     {
         [SerializeField] public TimeSystem.TimeData TimeData;
         [SerializeField] public int Money;
-        [SerializeField] public PlayerInventory.Item[] Items;
+        // [SerializeField] public PlayerInventory.Item[] Items;
         [SerializeField] public ShopScript.ShopItem[] ShopItems;
+
+        // [SerializeField] public InventorySlot[] Items;
+        public InventorySaveData invSave;
     }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -78,9 +83,18 @@ public class LoadSaveFiles : MonoBehaviour
 
         // Update only the relevant fields
         saveData.TimeData = GameEvents.OnGetTimeDataEvent.Invoke();
-        saveData.Money = GameEvents.OnGetPlayerMoney.Invoke();
-        saveData.Items = playerInventory.ToArray();
+        saveData.Money = Inventory.Instance.Money;
+        saveData.invSave = new InventorySaveData { slots = new List<InventorySlotSaveData>() };
         saveData.ShopItems = shopInventory.ToArray();
+
+        foreach (var slot in Inventory.Instance.slots)
+        {
+            saveData.invSave.slots.Add(new InventorySlotSaveData
+            {
+                itemID   = slot.item != null ? slot.item.itemName : "",
+                quantity = slot.quantity
+            });
+        }
 
         string json = JsonUtility.ToJson(saveData, true);
 

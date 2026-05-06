@@ -38,7 +38,7 @@ public class PlayerInventory : MonoBehaviour
     {
         GameEvents.OnPlayerOpenInventoryEvent.AddListener(ToggleOpenInventoryUI);
         GameEvents.OnPlayerCloseInventoryEvent.AddListener(ToggleCloseInventoryUI);
-        GameEvents.OnLoadDataEvent.AddListener(TriggerLoadPlayerInventory);
+        // GameEvents.OnLoadDataEvent.AddListener(TriggerLoadPlayerInventory);
         GameEvents.OnGetPlayerInventoryEvent += GetInventory;
         GameEvents.OnGetPlayerMoney += GetMoney;
     }

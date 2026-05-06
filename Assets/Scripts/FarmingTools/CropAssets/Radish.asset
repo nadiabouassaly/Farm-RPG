@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9810d2011fe008fa9b2a874955418882, type: 3}
+  m_Name: Radish
+  m_EditorClassIdentifier: Assembly-CSharp::CropData
+  cropName: Radish
+  seedItem: {fileID: 11400000, guid: 4177c1fa5d224fc9b98a03e8964cc890, type: 2}
+  cropItem: {fileID: 11400000, guid: 4177c1fa5d224fc9b98a03e8964cc890, type: 2}
+  daysToGrow: 9
+  yield: 6
+  growthPhaseSprites:
+  - {fileID: 7111096337340187436, guid: 4688e484718f65e4b95e5177a8bca92d, type: 3}
+  - {fileID: -5953878577670561019, guid: a828589e670c5a34abd0ce9cdbcadf8e, type: 3}
+  - {fileID: -5085810312467645797, guid: fafad1b66729a1d4e82b1b490d58198b, type: 3}
+  - {fileID: 9063878576338712755, guid: 38ced54c4c3352840b20428d8c2ce5cc, type: 3}
+  - {fileID: -8339912874213387208, guid: e4be236988bc899439e0f3597583bef2, type: 3}

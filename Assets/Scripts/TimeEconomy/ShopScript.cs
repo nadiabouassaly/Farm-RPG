@@ -23,6 +23,7 @@ public class ShopScript : MonoBehaviour
 
     [SerializeField] public PlayerInventory playerInventory;
 
+    [SerializeField] public ItemRegistry registry;
 
     [System.Serializable]
     public class ShopItem
@@ -185,16 +186,18 @@ public class ShopScript : MonoBehaviour
 
     public void BuyItem(string itemName)
     {
+        registry.Initialize();
+        ItemData idk = registry.GetByID(itemName);
         foreach (ShopItem item in ShopInventory)
         {
             if (item.Name == itemName)
             {
-                int currentBalance = playerInventory.GetMoney();
+                int currentBalance = Inventory.Instance.Money;
 
                 if (item.BuyPrice <= currentBalance)
                 {
-                    playerInventory.DecreaseMoney(item.BuyPrice);
-                    playerInventory.IncreaseItemCount(itemName, 1);
+                    Inventory.Instance.DecreaseMoney(item.BuyPrice);
+                    Inventory.Instance.AddItem(idk, 1);
                     ShopItem updatedItem = item;
                     updatedItem.Quantity -= 1;
                     ShopInventory[ShopInventory.IndexOf(item)] = updatedItem;
@@ -214,16 +217,18 @@ public class ShopScript : MonoBehaviour
 
     public void BuyAllItem(string itemName)
     {
+        registry.Initialize();
+        ItemData idk = registry.GetByID(itemName);
         foreach (ShopItem item in ShopInventory)
         {
             if (item.Name == itemName)
             {
-                int currentBalance = playerInventory.GetMoney();
+                int currentBalance = Inventory.Instance.Money;
 
                 if (item.BuyPrice * item.Quantity <= currentBalance)
                 {
-                    playerInventory.DecreaseMoney(item.BuyPrice * item.Quantity);
-                    playerInventory.IncreaseItemCount(itemName, item.Quantity);
+                    Inventory.Instance.DecreaseMoney(item.BuyPrice * item.Quantity);
+                    Inventory.Instance.AddItem(idk, item.Quantity);
                     ShopItem updatedItem = item;
                     updatedItem.Quantity = 0;
                     ShopInventory[ShopInventory.IndexOf(item)] = updatedItem;
@@ -232,8 +237,8 @@ public class ShopScript : MonoBehaviour
                     int maxAffordableQuantity = currentBalance / item.BuyPrice;
                     if (maxAffordableQuantity >= 1)
                     {
-                        playerInventory.DecreaseMoney(item.BuyPrice * maxAffordableQuantity);
-                        playerInventory.IncreaseItemCount(itemName, maxAffordableQuantity);
+                        Inventory.Instance.DecreaseMoney(item.BuyPrice * maxAffordableQuantity);
+                        Inventory.Instance.AddItem(idk, maxAffordableQuantity);
                         ShopItem updatedItem = item;
                         updatedItem.Quantity -= maxAffordableQuantity;
                         ShopInventory[ShopInventory.IndexOf(item)] = updatedItem;
@@ -257,15 +262,17 @@ public class ShopScript : MonoBehaviour
     }
 
     public void SellItem(string itemName)
-    {
+    {   
+        registry.Initialize();
+        ItemData idk = registry.GetByID(itemName);
         foreach (ShopItem item in ShopInventory)
         {
             if (item.Name == itemName)
             {
-                if (playerInventory.GetItemQuantity(itemName) > 0)
+                if (Inventory.Instance.GetItemQuantity(itemName) > 0)
                 {
-                    playerInventory.IncreaseMoney(item.SellPrice);
-                    playerInventory.DecreaseItemCount(itemName, 1);
+                    Inventory.Instance.IncreaseMoney(item.SellPrice);
+                    Inventory.Instance.RemoveItem(idk, 1);
                     ShopItem updatedItem = item;
                     updatedItem.Quantity += 1;
                     ShopInventory[ShopInventory.IndexOf(item)] = updatedItem;
@@ -282,13 +289,15 @@ public class ShopScript : MonoBehaviour
 
     public void SellAllItem(string itemName)
     {
+        registry.Initialize();
+        ItemData idk = registry.GetByID(itemName);
         foreach (ShopItem item in ShopInventory)
         {
             if (item.Name == itemName)
             {
-                int quantityToSell = playerInventory.GetItemQuantity(itemName);
-                playerInventory.IncreaseMoney(item.SellPrice * playerInventory.GetItemQuantity(itemName));
-                playerInventory.DecreaseItemCount(itemName, quantityToSell);
+                int quantityToSell = Inventory.Instance.GetItemQuantity(itemName);
+                Inventory.Instance.IncreaseMoney(item.SellPrice * Inventory.Instance.GetItemQuantity(itemName));
+                Inventory.Instance.RemoveItem(idk, quantityToSell);
                 ShopItem updatedItem = item;
                 updatedItem.Quantity += quantityToSell;
                 ShopInventory[ShopInventory.IndexOf(item)] = updatedItem;
@@ -380,16 +389,16 @@ public class ShopScript : MonoBehaviour
             if (currentCategory == "All")
             {
                 int count = 0;
-                foreach (PlayerInventory.Item item in playerInventory.GetInventory())
+                foreach (InventorySlot item in Inventory.Instance.slots)
                 {
-                    if (item.Quantity > 0)
+                    if (item.quantity > 0)
                     {
-                        ShopItem itemInTheShop = GetShopItems().Find(i => i.Name == item.Name);
+                        ShopItem itemInTheShop = GetShopItems().Find(i => i.Name == item.item.itemName);
                         GameObject itemInstance = CreateItemBlock(itemInTheShop, itemList.transform);
-                        GameObject itemLabel = CreateTextLabel($"{item.Name} Name", $"{item.Name}", 30, Color.black, itemInstance.transform);
-                        GameObject itemQuantity = CreateTextLabel($"{item.Name} Quantity", $"x{item.Quantity}", 30, Color.black, itemInstance.transform);
-                        GameObject sellButtonObject = CreateButton($"{item.Name} Sell Button", $"Sell ${itemInTheShop.SellPrice}", new Vector2(40, 40), itemInstance.transform, () => SellItem(item.Name));
-                        GameObject sellAllButtonObject = CreateButton($"{item.Name} Sell All Button", $"Sell All ${itemInTheShop.SellPrice * item.Quantity}", new Vector2(40, 40), itemInstance.transform, () => SellAllItem(item.Name));
+                        GameObject itemLabel = CreateTextLabel($"{item.item.itemName} Name", $"{item.item.itemName}", 30, Color.black, itemInstance.transform);
+                        GameObject itemQuantity = CreateTextLabel($"{item.item.itemName} Quantity", $"x{item.quantity}", 30, Color.black, itemInstance.transform);
+                        GameObject sellButtonObject = CreateButton($"{item.item.itemName} Sell Button", $"Sell ${itemInTheShop.SellPrice}", new Vector2(40, 40), itemInstance.transform, () => SellItem(item.item.itemName));
+                        GameObject sellAllButtonObject = CreateButton($"{item.item.itemName} Sell All Button", $"Sell All ${itemInTheShop.SellPrice * item.quantity}", new Vector2(40, 40), itemInstance.transform, () => SellAllItem(item.item.itemName));
 
                         count++;
                     }
@@ -413,16 +422,16 @@ public class ShopScript : MonoBehaviour
             else if (currentCategory != "All" && currentCategory != null)
             {
                 int count = 0;
-                foreach (PlayerInventory.Item item in playerInventory.GetInventory())
+                foreach (InventorySlot item in Inventory.Instance.slots)
                 {
-                    if (item.Category == currentCategory && item.Quantity > 0)
+                    if (item.item.Category == currentCategory && item.quantity > 0)
                     {
-                        ShopItem itemInTheShop = GetShopItems().Find(i => i.Name == item.Name);
+                        ShopItem itemInTheShop = GetShopItems().Find(i => i.Name == item.item.itemName);
                         GameObject itemInstance = CreateItemBlock(itemInTheShop, itemList.transform);
-                        GameObject itemLabel = CreateTextLabel($"{item.Name} Name", $"{item.Name}", 30, Color.black, itemInstance.transform);
-                        GameObject itemQuantity = CreateTextLabel($"{item.Name} Quantity", $"x{item.Quantity}", 30, Color.black, itemInstance.transform);
-                        GameObject sellButtonObject = CreateButton($"{item.Name} Sell Button", $"Sell ${itemInTheShop.SellPrice}", new Vector2(40, 40), itemInstance.transform, () => SellItem(item.Name));
-                        GameObject sellAllButtonObject = CreateButton($"{item.Name} Sell All Button", $"Sell All ${itemInTheShop.SellPrice * item.Quantity}", new Vector2(40, 40), itemInstance.transform, () => SellAllItem(item.Name));
+                        GameObject itemLabel = CreateTextLabel($"{item.item.itemName} Name", $"{item.item.itemName}", 30, Color.black, itemInstance.transform);
+                        GameObject itemQuantity = CreateTextLabel($"{item.item.itemName} Quantity", $"x{item.quantity}", 30, Color.black, itemInstance.transform);
+                        GameObject sellButtonObject = CreateButton($"{item.item.itemName} Sell Button", $"Sell ${itemInTheShop.SellPrice}", new Vector2(40, 40), itemInstance.transform, () => SellItem(item.item.itemName));
+                        GameObject sellAllButtonObject = CreateButton($"{item.item.itemName} Sell All Button", $"Sell All ${itemInTheShop.SellPrice * item.quantity}", new Vector2(40, 40), itemInstance.transform, () => SellAllItem(item.item.itemName));
 
                         count++;
                     }

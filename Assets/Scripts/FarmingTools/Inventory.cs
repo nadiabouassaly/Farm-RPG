@@ -5,8 +5,10 @@ public class Inventory : MonoBehaviour
 {   
     public static Inventory Instance { get; private set; }
     [SerializeField] private int inventorySize = 36;
+    [SerializeField] public ItemRegistry registry;
     public List<InventorySlot> slots;
     public event System.Action OnInventoryChanged;
+    public int Money;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Awake()
     {
@@ -24,6 +26,7 @@ public class Inventory : MonoBehaviour
         {
             slots.Add(new InventorySlot());
         }
+        GameEvents.OnLoadDataEvent.AddListener(TriggerLoadPlayerInventory);
     }
     
     public bool AddItem(ItemData item, int quantity = 1)
@@ -144,6 +147,17 @@ public class Inventory : MonoBehaviour
         return total;
     }
 
+    public int GetItemQuantity(string name) {
+        int total = 0;
+        foreach (var slot in slots) {
+            if (slot.item != null && slot.item.name == name)
+            {
+                total += slot.quantity;
+            }
+        }
+        return total;
+    }
+
     // Update is called once per frame
     void Update()
     {
@@ -151,4 +165,30 @@ public class Inventory : MonoBehaviour
     }
 
     public void NotifyChanged() => OnInventoryChanged?.Invoke();
+
+    public void TriggerLoadPlayerInventory(TextAsset textFile)
+    {
+        LoadSaveFiles.SaveFile itemList = JsonUtility.FromJson<LoadSaveFiles.SaveFile>(textFile.text);
+        Money = itemList.Money;
+        for (int i = 0; i < itemList.invSave.slots.Count; i++)
+        {
+            var slotData = itemList.invSave.slots[i];
+            slots[i].item     = registry.GetByID(slotData.itemID); // Resolves SO reference
+            slots[i].quantity = slotData.quantity;
+        }
+    }
+
+    public void IncreaseMoney(int amount)
+    {
+        Money += amount;
+    }
+    public void DecreaseMoney(int amount)
+    {
+        Money -= amount;
+    }
+
+    public void SetMoney(int amount)
+    {
+        Money = amount;
+    }
 }
