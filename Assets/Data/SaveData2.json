@@ -1,55 +1,17 @@
 {
     "TimeData": {
-        "DayOfTheWeek": 4,
-        "Day": "Friday",
-        "DayCounter": 800,
+        "DayOfTheWeek": 0,
+        "Day": "Monday",
+        "DayCounter": 1,
         "SeasonNumber": 0,
-        "Season": "Winter",
-        "Hour": 17,
-        "Minute": 55,
-        "Second": 0,
+        "Season": "Spring",
+        "Hour": 8.0,
+        "Minute": 59.0,
+        "Second": 0.767343282699585,
         "TimeSpeed": 1.0
     },
-    "Money": 1000000,
-    "Items": [
-        { "Name": "Beetroot Seed", "Category": "Seeds", "Quantity": 0 },
-        { "Name": "Cabbage Seed", "Category": "Seeds", "Quantity": 0 },
-        { "Name": "Carrot Seed", "Category": "Seeds", "Quantity": 0 },
-        { "Name": "Cauliflower Seed", "Category": "Seeds", "Quantity": 0 },
-        { "Name": "Kale Seed", "Category": "Seeds", "Quantity": 0 },
-        { "Name": "Parsnip Seed", "Category": "Seeds", "Quantity": 0 },
-        { "Name": "Potato Seed", "Category": "Seeds", "Quantity": 0 },
-        { "Name": "Pumpkin Seed", "Category": "Seeds", "Quantity": 0 },
-        { "Name": "Radish Seed", "Category": "Seeds", "Quantity": 0 },
-        { "Name": "Sunflower Seed", "Category": "Seeds", "Quantity": 0 },
-        { "Name": "Wheat Seed", "Category": "Seeds", "Quantity": 0 },
-        { "Name": "Beetroot", "Category": "Plant Products", "Quantity": 0 },
-        { "Name": "Cabbage", "Category": "Plant Products", "Quantity": 0 },
-        { "Name": "Carrot", "Category": "Plant Products", "Quantity": 0 },
-        { "Name": "Cauliflower", "Category": "Plant Products", "Quantity": 0 },
-        { "Name": "Kale", "Category": "Plant Products", "Quantity": 0 },
-        { "Name": "Parsnip", "Category": "Plant Products", "Quantity": 0 },
-        { "Name": "Potato", "Category": "Plant Products", "Quantity": 0 },
-        { "Name": "Pumpkin", "Category": "Plant Products", "Quantity": 0 },
-        { "Name": "Radish", "Category": "Plant Products", "Quantity": 0 },
-        { "Name": "Sunflower", "Category": "Plant Products", "Quantity": 0 },
-        { "Name": "Wheat", "Category": "Plant Products", "Quantity": 0 },
-        { "Name": "Chicken", "Category": "Animals", "Quantity": 0 },
-        { "Name": "Cow", "Category": "Animals", "Quantity": 0 },
-        { "Name": "Sheep", "Category": "Animals", "Quantity": 0 },
-        { "Name": "Pig", "Category": "Animals", "Quantity": 0 },
-        { "Name": "Egg", "Category": "Animal Products", "Quantity": 0 },
-        { "Name": "Milk", "Category": "Animal Products", "Quantity": 0 },
-        { "Name": "Fish", "Category": "Animal Products", "Quantity": 0 },
-        { "Name": "Hammer", "Category": "Tools", "Quantity": 1 },
-        { "Name": "Shovel", "Category": "Tools", "Quantity": 1 },
-        { "Name": "Axe", "Category": "Tools", "Quantity": 1 },
-        { "Name": "Pickaxe", "Category": "Tools", "Quantity": 1 },
-        { "Name": "Sword", "Category": "Tools", "Quantity": 1 },
-        { "Name": "Fishing Rod", "Category": "Tools", "Quantity": 0 }
-    ],
-
-    "ShopItems" : [
+    "Money": 14,
+        "ShopItems" : [
         { "Name": "Beetroot Seed", "Category": "Seeds", "Quantity": 0, "BuyPrice": 10, "SellPrice": 5, "Season": ["Fall", "Winter", "Spring"] },
         { "Name": "Cabbage Seed", "Category": "Seeds", "Quantity": 0, "BuyPrice": 12, "SellPrice": 6, "Season": ["Spring", "Summer"] },
         { "Name": "Carrot Seed", "Category": "Seeds", "Quantity": 0, "BuyPrice": 8, "SellPrice": 4, "Season": ["Fall", "Winter"] },
@@ -89,5 +51,153 @@
         { "Name": "Pickaxe", "Category": "Tools", "Quantity": 0, "BuyPrice": 70, "SellPrice": 35, "Season": ["Fall", "Winter", "Spring", "Summer"] },
         { "Name": "Sword", "Category": "Tools", "Quantity": 0, "BuyPrice": 80, "SellPrice": 40, "Season": ["Fall", "Winter", "Spring", "Summer"] },
         { "Name": "Fishing Rod", "Category": "Tools", "Quantity": 0, "BuyPrice": 90, "SellPrice": 45, "Season": ["Fall", "Winter", "Spring", "Summer"] }
-    ]
+    ],
+    "invSave": {
+        "slots": [
+            {
+                "itemID": "Beetroot",
+                "quantity": 6
+            },
+            {
+                "itemID": "Hoe",
+                "quantity": 1
+            },
+            {
+                "itemID": "Watering Can",
+                "quantity": 1
+            },
+            {
+                "itemID": "Sickle",
+                "quantity": 1
+            },
+            {
+                "itemID": "Potato",
+                "quantity": 1
+            },
+            {
+                "itemID": "Radish",
+                "quantity": 1
+            },
+            {
+                "itemID": "",
+                "quantity": 0
+            },
+            {
+                "itemID": "",
+                "quantity": 0
+            },
+            {
+                "itemID": "",
+                "quantity": 0
+            },
+            {
+                "itemID": "",
+                "quantity": 0
+            },
+            {
+                "itemID": "",
+                "quantity": 0
+            },
+            {
+                "itemID": "",
+                "quantity": 0
+            },
+            {
+                "itemID": "",
+                "quantity": 0
+            },
+            {
+                "itemID": "",
+                "quantity": 0
+            },
+            {
+                "itemID": "",
+                "quantity": 0
+            },
+            {
+                "itemID": "",
+                "quantity": 0
+            },
+            {
+                "itemID": "",
+                "quantity": 0
+            },
+            {
+                "itemID": "",
+                "quantity": 0
+            },
+            {
+                "itemID": "",
+                "quantity": 0
+            },
+            {
+                "itemID": "",
+                "quantity": 0
+            },
+            {
+                "itemID": "",
+                "quantity": 0
+            },
+            {
+                "itemID": "",
+                "quantity": 0
+            },
+            {
+                "itemID": "",
+                "quantity": 0
+            },
+            {
+                "itemID": "",
+                "quantity": 0
+            },
+            {
+                "itemID": "",
+                "quantity": 0
+            },
+            {
+                "itemID": "",
+                "quantity": 0
+            },
+            {
+                "itemID": "",
+                "quantity": 0
+            },
+            {
+                "itemID": "",
+                "quantity": 0
+            },
+            {
+                "itemID": "",
+                "quantity": 0
+            },
+            {
+                "itemID": "",
+                "quantity": 0
+            },
+            {
+                "itemID": "",
+                "quantity": 0
+            },
+            {
+                "itemID": "",
+                "quantity": 0
+            },
+            {
+                "itemID": "",
+                "quantity": 0
+            },
+            {
+                "itemID": "",
+                "quantity": 0
+            },
+            {
+                "itemID": "",
+                "quantity": 0
+            },
+            {
+                "itemID": "",
+                "quantity": 0
+            }
+        ]
+    }
 }
