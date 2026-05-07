@@ -89,7 +89,50 @@ public class ShopScript : MonoBehaviour
 
     public List<ShopItem> GetShopItems()
     {
+        if (ShopInventory == null) ShopInventory = new List<ShopItem>();
         return ShopInventory;
+    }
+
+    private ShopItem GetOrCreateSellableItem(string itemName)
+    {
+        if (string.IsNullOrEmpty(itemName)) return null;
+        if (ShopInventory == null) ShopInventory = new List<ShopItem>();
+
+        ShopItem existing = ShopInventory.Find(i => i.Name == itemName);
+        if (existing != null) return existing;
+
+        int sellPrice = GetDefaultSellPrice(itemName);
+        if (sellPrice <= 0) return null;
+
+        ShopItem created = new ShopItem
+        {
+            Name = itemName,
+            Category = "Animal Products",
+            Quantity = 0,
+            BuyPrice = 0,
+            SellPrice = sellPrice,
+            Season = new[] { "Spring", "Summer", "Fall", "Winter" }
+        };
+
+        ShopInventory.Add(created);
+        return created;
+    }
+
+    private int GetDefaultSellPrice(string itemName)
+    {
+        switch (itemName)
+        {
+            case "Egg": return 8;
+            case "Milk": return 18;
+            case "Wool": return 24;
+            case "Premium Egg": return 20;
+            case "Premium Milk": return 46;
+            case "Premium Wool": return 58;
+            case "Quality Egg": return 20;
+            case "Quality Milk": return 46;
+            case "Quality Wool": return 58;
+            default: return 0;
+        }
     }
 
     public GameObject GetShopItemsList()
@@ -263,49 +306,54 @@ public class ShopScript : MonoBehaviour
 
     public void SellItem(string itemName)
     {   
+        if (registry == null || Inventory.Instance == null) return;
+
         registry.Initialize();
         ItemData idk = registry.GetByID(itemName);
-        foreach (ShopItem item in ShopInventory)
+        ShopItem item = GetOrCreateSellableItem(itemName);
+        if (item == null || idk == null)
         {
-            if (item.Name == itemName)
-            {
-                if (Inventory.Instance.GetItemQuantity(itemName) > 0)
-                {
-                    Inventory.Instance.IncreaseMoney(item.SellPrice);
-                    Inventory.Instance.RemoveItem(idk, 1);
-                    ShopItem updatedItem = item;
-                    updatedItem.Quantity += 1;
-                    ShopInventory[ShopInventory.IndexOf(item)] = updatedItem;
-                    FetchShopItems();
-                }
-                else
-                {
-                    Debug.LogWarning($"You do not have any {itemName} to sell.");
-                }
-                return;
-            }
+            Debug.LogWarning($"Item with name {itemName} cannot be sold because it is missing shop or registry data.");
+            return;
+        }
+
+        if (Inventory.Instance.GetItemQuantity(itemName) > 0)
+        {
+            Inventory.Instance.IncreaseMoney(item.SellPrice);
+            Inventory.Instance.RemoveItem(idk, 1);
+            item.Quantity += 1;
+            FetchShopItems();
+        }
+        else
+        {
+            Debug.LogWarning($"You do not have any {itemName} to sell.");
         }
     }
 
     public void SellAllItem(string itemName)
     {
+        if (registry == null || Inventory.Instance == null) return;
+
         registry.Initialize();
         ItemData idk = registry.GetByID(itemName);
-        foreach (ShopItem item in ShopInventory)
+        ShopItem item = GetOrCreateSellableItem(itemName);
+        if (item == null || idk == null)
         {
-            if (item.Name == itemName)
-            {
-                int quantityToSell = Inventory.Instance.GetItemQuantity(itemName);
-                Inventory.Instance.IncreaseMoney(item.SellPrice * Inventory.Instance.GetItemQuantity(itemName));
-                Inventory.Instance.RemoveItem(idk, quantityToSell);
-                ShopItem updatedItem = item;
-                updatedItem.Quantity += quantityToSell;
-                ShopInventory[ShopInventory.IndexOf(item)] = updatedItem;
-                FetchShopItems();
-                return;
-            }
+            Debug.LogWarning($"Item with name {itemName} cannot be sold because it is missing shop or registry data.");
+            return;
         }
-        Debug.LogWarning($"Item with name {itemName} not found in shop inventory.");
+
+        int quantityToSell = Inventory.Instance.GetItemQuantity(itemName);
+        if (quantityToSell <= 0)
+        {
+            Debug.LogWarning($"You do not have any {itemName} to sell.");
+            return;
+        }
+
+        Inventory.Instance.IncreaseMoney(item.SellPrice * quantityToSell);
+        Inventory.Instance.RemoveItem(idk, quantityToSell);
+        item.Quantity += quantityToSell;
+        FetchShopItems();
     }
 
     public void FetchShopItems()
@@ -328,6 +376,7 @@ public class ShopScript : MonoBehaviour
                     if (item.Quantity > 0)
                     {
                         GameObject itemInstance = CreateItemBlock(item, itemList.transform);
+                        if (itemInstance == null) continue;
                         GameObject itemLabel = CreateTextLabel($"{item.Name} Name", $"{item.Name}", 30, Color.black, itemInstance.transform);
                         GameObject itemQuantity = CreateTextLabel($"{item.Name} Quantity", $"x{item.Quantity}", 30, Color.black, itemInstance.transform);
                         GameObject buyButtonObject = CreateButton($"{item.Name} Buy Button", $"Buy ${item.BuyPrice}", new Vector2(40, 40), itemInstance.transform, () => BuyItem(item.Name));
@@ -360,6 +409,7 @@ public class ShopScript : MonoBehaviour
                     if (item.Category == currentCategory && item.Quantity > 0)
                     {
                         GameObject itemInstance = CreateItemBlock(item, itemList.transform);
+                        if (itemInstance == null) continue;
                         GameObject itemLabel = CreateTextLabel($"{item.Name} Name", $"{item.Name}", 30, Color.black, itemInstance.transform);
                         GameObject itemQuantity = CreateTextLabel($"{item.Name} Quantity", $"x{item.Quantity}", 30, Color.black, itemInstance.transform);
                         GameObject buyButtonObject = CreateButton($"{item.Name} Buy Button", $"Buy ${item.BuyPrice}", new Vector2(40, 40), itemInstance.transform, () => BuyItem(item.Name));
@@ -391,10 +441,12 @@ public class ShopScript : MonoBehaviour
                 int count = 0;
                 foreach (InventorySlot item in Inventory.Instance.slots)
                 {
-                    if (item.quantity > 0)
+                    if (item.item != null && item.quantity > 0)
                     {
-                        ShopItem itemInTheShop = GetShopItems().Find(i => i.Name == item.item.itemName);
+                        ShopItem itemInTheShop = GetOrCreateSellableItem(item.item.itemName);
+                        if (itemInTheShop == null) continue;
                         GameObject itemInstance = CreateItemBlock(itemInTheShop, itemList.transform);
+                        if (itemInstance == null) continue;
                         GameObject itemLabel = CreateTextLabel($"{item.item.itemName} Name", $"{item.item.itemName}", 30, Color.black, itemInstance.transform);
                         GameObject itemQuantity = CreateTextLabel($"{item.item.itemName} Quantity", $"x{item.quantity}", 30, Color.black, itemInstance.transform);
                         GameObject sellButtonObject = CreateButton($"{item.item.itemName} Sell Button", $"Sell ${itemInTheShop.SellPrice}", new Vector2(40, 40), itemInstance.transform, () => SellItem(item.item.itemName));
@@ -424,10 +476,12 @@ public class ShopScript : MonoBehaviour
                 int count = 0;
                 foreach (InventorySlot item in Inventory.Instance.slots)
                 {
-                    if (item.item.Category == currentCategory && item.quantity > 0)
+                    if (item.item != null && item.item.Category == currentCategory && item.quantity > 0)
                     {
-                        ShopItem itemInTheShop = GetShopItems().Find(i => i.Name == item.item.itemName);
+                        ShopItem itemInTheShop = GetOrCreateSellableItem(item.item.itemName);
+                        if (itemInTheShop == null) continue;
                         GameObject itemInstance = CreateItemBlock(itemInTheShop, itemList.transform);
+                        if (itemInstance == null) continue;
                         GameObject itemLabel = CreateTextLabel($"{item.item.itemName} Name", $"{item.item.itemName}", 30, Color.black, itemInstance.transform);
                         GameObject itemQuantity = CreateTextLabel($"{item.item.itemName} Quantity", $"x{item.quantity}", 30, Color.black, itemInstance.transform);
                         GameObject sellButtonObject = CreateButton($"{item.item.itemName} Sell Button", $"Sell ${itemInTheShop.SellPrice}", new Vector2(40, 40), itemInstance.transform, () => SellItem(item.item.itemName));
@@ -547,6 +601,12 @@ public class ShopScript : MonoBehaviour
 
     private GameObject CreateItemBlock(ShopItem item, Transform parent)
     {
+        if (item == null)
+        {
+            Debug.LogWarning("Cannot create a shop item block for missing shop data.");
+            return null;
+        }
+
         GameObject itemInstance = new GameObject(item.Name);
         itemInstance.transform.SetParent(parent, false);
         HorizontalLayoutGroup layoutGroup = itemInstance.AddComponent<HorizontalLayoutGroup>();

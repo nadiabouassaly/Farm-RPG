@@ -62,6 +62,7 @@ public class TimeSystem : MonoBehaviour
     [SerializeField] public Color nightLight;
     [SerializeField] private float nightLightIntensity = 0.2f;
     [SerializeField] private float t = 0f;
+    private int lastBroadcastHour = -1;
 
     private void Awake()
     {
@@ -77,6 +78,7 @@ public class TimeSystem : MonoBehaviour
         setClockSpeed(1);
         setHour(6);
         setMinute(0);
+        BroadcastHourChanged(false);
     }
     void Start()
     {
@@ -116,6 +118,7 @@ public class TimeSystem : MonoBehaviour
         }
 
         day = dayOfTheWeek[currentDayOfTheWeek];
+        BroadcastHourChanged(false);
 
 
         if ((currentHour + Mathf.Clamp01(currentMinute / MaxHourTime)) >= 4 && (currentHour + Mathf.Clamp01(currentMinute / MaxHourTime)) <= 8)
@@ -139,6 +142,15 @@ public class TimeSystem : MonoBehaviour
 
     }
 
+    private void BroadcastHourChanged(bool force)
+    {
+        int hour = getHour();
+        if (!force && hour == lastBroadcastHour) return;
+
+        lastBroadcastHour = hour;
+        GameEvents.OnTimeChanged.Invoke(hour);
+    }
+
     public void TriggerLoadTimeData(TextAsset textFile)
     {
         if (textFile == null)
@@ -159,6 +171,7 @@ public class TimeSystem : MonoBehaviour
         setMinute((int)timeData.Minute);
         secondLoop = timeData.Second;
         setClockSpeed(timeData.TimeSpeed);
+        BroadcastHourChanged(true);
     }
 
     public TimeData GetTimeData()
@@ -310,6 +323,33 @@ public class TimeSystem : MonoBehaviour
                 currentHour++;
             }
         }
+    }
+
+    public void AdvanceOneHour()
+    {
+        advanceTimeInHours(1);
+        currentMinute = 0;
+        secondLoop = 0f;
+        day = dayOfTheWeek[currentDayOfTheWeek];
+        BroadcastHourChanged(true);
+    }
+
+    public void AdvanceOneDay()
+    {
+        currentDayOfTheWeek = (currentDayOfTheWeek + 1) % 7;
+        dayCounter++;
+        if (dayCounter % 90 == 0)
+        {
+            seasonNumber = (seasonNumber + 1) % seasons.Count;
+            season = seasons[seasonNumber];
+        }
+
+        day = dayOfTheWeek[currentDayOfTheWeek];
+        currentHour = 6;
+        currentMinute = 0;
+        secondLoop = 0f;
+        GameEvents.OnNewDayEvent.Invoke();
+        BroadcastHourChanged(true);
     }
     public void advanceTimeInMinutes(int minutes)
     {

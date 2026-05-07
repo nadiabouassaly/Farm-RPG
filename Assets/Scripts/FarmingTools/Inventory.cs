@@ -150,7 +150,7 @@ public class Inventory : MonoBehaviour
     public int GetItemQuantity(string name) {
         int total = 0;
         foreach (var slot in slots) {
-            if (slot.item != null && slot.item.name == name)
+            if (slot.item != null && (slot.item.name == name || slot.item.itemName == name))
             {
                 total += slot.quantity;
             }
@@ -168,12 +168,31 @@ public class Inventory : MonoBehaviour
 
     public void TriggerLoadPlayerInventory(TextAsset textFile)
     {
-        LoadSaveFiles.SaveFile itemList = JsonUtility.FromJson<LoadSaveFiles.SaveFile>(textFile.text);
+        if (textFile == null) return;
+
+        LoadSaveFiles.SaveFile itemList;
+        try
+        {
+            if (string.IsNullOrEmpty(textFile.text)) return;
+            itemList = JsonUtility.FromJson<LoadSaveFiles.SaveFile>(textFile.text);
+        }
+        catch (System.Exception ex)
+        {
+            Debug.LogWarning($"Could not load inventory save data: {ex.Message}");
+            return;
+        }
+
+        if (itemList == null) return;
+
         Money = itemList.Money;
-        for (int i = 0; i < itemList.invSave.slots.Count; i++)
+        if (itemList.invSave == null || itemList.invSave.slots == null) return;
+
+        if (registry != null) registry.Initialize();
+        int count = Mathf.Min(itemList.invSave.slots.Count, slots.Count);
+        for (int i = 0; i < count; i++)
         {
             var slotData = itemList.invSave.slots[i];
-            slots[i].item     = registry.GetByID(slotData.itemID); // Resolves SO reference
+            slots[i].item     = registry != null && !string.IsNullOrEmpty(slotData.itemID) ? registry.GetByID(slotData.itemID) : null;
             slots[i].quantity = slotData.quantity;
         }
     }

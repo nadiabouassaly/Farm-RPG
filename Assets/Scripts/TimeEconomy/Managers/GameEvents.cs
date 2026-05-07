@@ -52,6 +52,15 @@ public class GameEvents : MonoBehaviour
     // New Day Event
     public static UnityEvent OnNewDayEvent = new UnityEvent();
 
+    // Set D NPC/animal integration events.
+    public static UnityEvent OnDialogueStart = new UnityEvent();
+    public static UnityEvent OnDialogueEnd = new UnityEvent();
+    public static UnityEvent<int> OnTimeChanged = new UnityEvent<int>();
+    public static UnityEvent OnDayAdvanced = OnNewDayEvent;
+    public static UnityEvent<string, int> OnFriendshipChanged = new UnityEvent<string, int>();
+    public static UnityEvent<string> OnAnimalFed = new UnityEvent<string>();
+    public static UnityEvent<string> OnAnimalPetted = new UnityEvent<string>();
+
     // Time Event
     public static Func<int> OnGetHourEvent;
     public static Func<string> OnGetSeasonEvent;

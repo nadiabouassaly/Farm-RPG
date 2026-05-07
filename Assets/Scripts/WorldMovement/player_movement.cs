@@ -4,7 +4,8 @@ using UnityEngine.InputSystem;
 public class Player_movement : MonoBehaviour
 {
     Animator anim ;
-    float speed = 10f;
+    [SerializeField] float walkSpeed = 10f;
+    [SerializeField] float sprintSpeed = 16f;
     Rigidbody2D rb ;
     Vector2 movement;
     bool facingRight = true;
@@ -20,7 +21,11 @@ public class Player_movement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (Keyboard.current == null) return;
+
         Vector2 position = transform.position;
+        bool sprinting = Keyboard.current.leftShiftKey.isPressed || Keyboard.current.rightShiftKey.isPressed;
+        float currentSpeed = sprinting ? sprintSpeed : walkSpeed;
     
         //A->left
         //D->right
@@ -34,7 +39,7 @@ public class Player_movement : MonoBehaviour
     Flip();
 }
             anim.SetBool("isWalking", true) ;
-            position -= new Vector2(speed*Time.deltaTime, 0);
+            position -= new Vector2(currentSpeed*Time.deltaTime, 0);
             movement = position;
             
         }
@@ -42,7 +47,7 @@ public class Player_movement : MonoBehaviour
         else if (Keyboard.current.wKey.isPressed)
         {
             anim.SetBool("isWalking", true) ;
-            position += new Vector2(0, speed*Time.deltaTime);
+            position += new Vector2(0, currentSpeed*Time.deltaTime);
             movement = position ;
         }
 
@@ -53,14 +58,14 @@ public class Player_movement : MonoBehaviour
     Flip();
 }
             anim.SetBool("isWalking", true) ;
-            position += new Vector2(speed*Time.deltaTime, 0);
+            position += new Vector2(currentSpeed*Time.deltaTime, 0);
             movement = position ;
         }
 
         else if (Keyboard.current.sKey.isPressed)
         {
             anim.SetBool("isWalking", true) ;
-            position -= new Vector2(0, speed*Time.deltaTime);
+            position -= new Vector2(0, currentSpeed*Time.deltaTime);
             movement = position ;
         }
 

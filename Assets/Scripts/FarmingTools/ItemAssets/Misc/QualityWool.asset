@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d85e335db0ef30c10aff88f44a7bf9f3, type: 3}
+  m_Name: QualityWool
+  m_EditorClassIdentifier: Assembly-CSharp::ItemData
+  itemName: Quality Wool
+  itemType: 2
+  itemIcon: {fileID: 5346049905554965891, guid: 0908ab3293985694faf16026babae7d2, type: 3}
+  maxStackSize: 64
+  description: Soft wool from a well-fed, happy sheep.
+  toolType: 0
+  staminaCost: 0
+  Category: Animal Products
