@@ -110,11 +110,16 @@ public class FarmingManager : MonoBehaviour
         {
             case ToolType.Hoe:
                 if ((tile == null || tile.state == TileState.Normal) && GridManager.Instance.tilemap.cellBounds.Contains(cellPos))
+                {
                     GridManager.Instance.SetTileState(cellPos, TileState.Tilled);
+                } else 
+                {
+                    StaminaSystem.Instance.Restore(item.staminaCost);
+                }
                 break;
 
             case ToolType.WateringCan:
-                if ((tile != null && (tile.state == TileState.Tilled || tile.crop != null)) && GridManager.Instance.tilemap.cellBounds.Contains(cellPos))
+                if (tile != null && (tile.state == TileState.Tilled) && GridManager.Instance.tilemap.cellBounds.Contains(cellPos))
                     if (tile.crop != null)
                     {
                         tile.crop.wateredThisDay = true;
