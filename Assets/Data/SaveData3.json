@@ -5,12 +5,12 @@
         "DayCounter": 1,
         "SeasonNumber": 0,
         "Season": "Spring",
-        "Hour": 8.0,
+        "Hour": 7.0,
         "Minute": 59.0,
         "Second": 0.767343282699585,
         "TimeSpeed": 1.0
     },
-    "Money": 14,
+    "Money": 8000,
         "ShopItems" : [
         { "Name": "Beetroot", "Category": "Seeds", "Quantity": 0, "BuyPrice": 10, "SellPrice": 5, "Season": ["Fall", "Winter", "Spring"] },
         { "Name": "Cabbage", "Category": "Seeds", "Quantity": 0, "BuyPrice": 12, "SellPrice": 6, "Season": ["Spring", "Summer"] },
@@ -53,11 +53,11 @@
                 "quantity": 1
             },
             {
-                "itemID": "Potato",
+                "itemID": "",
                 "quantity": 0
             },
             {
-                "itemID": "Radish",
+                "itemID": "",
                 "quantity": 0
             },
             {

@@ -38,26 +38,26 @@
         "slots": [
             {
                 "itemID": "Beetroot",
-                "quantity": 0
+                "quantity": 6
             },
             {
                 "itemID": "Hoe",
-                "quantity": 0
+                "quantity": 1
             },
             {
                 "itemID": "Watering Can",
-                "quantity": 0
+                "quantity": 1
             },
             {
                 "itemID": "Sickle",
+                "quantity": 1
+            },
+            {
+                "itemID": "",
                 "quantity": 0
             },
             {
-                "itemID": "Potato",
-                "quantity": 0
-            },
-            {
-                "itemID": "Radish",
+                "itemID": "",
                 "quantity": 0
             },
             {

@@ -44,13 +44,7 @@ public class PlayerInventory : MonoBehaviour
     }
     void Start()
     {
-        SetItemQuantity("Egg", 25);
-        SetItemQuantity("Chicken", 5);
-        SetItemQuantity("Shovel", 1);
-        SetItemQuantity("Beetroot", 3);
-        SetItemQuantity("Beetroot Seed", 10);
-        SetItemQuantity("Carrot", 5);
-        SetItemQuantity("Carrot Seed", 15);
+
     }
 
     // Update is called once per frame

@@ -5,8 +5,8 @@
         "DayCounter": 1,
         "SeasonNumber": 0,
         "Season": "Spring",
-        "Hour": 8.0,
-        "Minute": 59.0,
+        "Hour": 7.0,
+        "Minute": 40.0,
         "Second": 0.767343282699585,
         "TimeSpeed": 1.0
     },
@@ -53,11 +53,11 @@
                 "quantity": 1
             },
             {
-                "itemID": "Potato",
+                "itemID": "",
                 "quantity": 0
             },
             {
-                "itemID": "Radish",
+                "itemID": "",
                 "quantity": 0
             },
             {

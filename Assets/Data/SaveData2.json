@@ -5,34 +5,235 @@
         "DayCounter": 1,
         "SeasonNumber": 0,
         "Season": "Spring",
-        "Hour": 8.0,
-        "Minute": 59.0,
-        "Second": 0.767343282699585,
+        "Hour": 7.0,
+        "Minute": 51.0,
+        "Second": 0.12361578643321991,
         "TimeSpeed": 1.0
     },
-    "Money": 14,
-        "ShopItems" : [
-        { "Name": "Beetroot", "Category": "Seeds", "Quantity": 0, "BuyPrice": 10, "SellPrice": 5, "Season": ["Fall", "Winter", "Spring"] },
-        { "Name": "Cabbage", "Category": "Seeds", "Quantity": 0, "BuyPrice": 12, "SellPrice": 6, "Season": ["Spring", "Summer"] },
-        { "Name": "Carrot", "Category": "Seeds", "Quantity": 0, "BuyPrice": 8, "SellPrice": 4, "Season": ["Fall", "Winter"] },
-        { "Name": "Cauliflower", "Category": "Seeds", "Quantity": 0, "BuyPrice": 15, "SellPrice": 7, "Season": ["Spring"] },
-        { "Name": "Kale", "Category": "Seeds", "Quantity": 0, "BuyPrice": 14, "SellPrice": 7, "Season": ["Winter", "Spring"] },
-        { "Name": "Parsnip", "Category": "Seeds", "Quantity": 0, "BuyPrice": 9, "SellPrice": 4, "Season": ["Spring"] },
-        { "Name": "Potato", "Category": "Seeds", "Quantity": 0, "BuyPrice": 11, "SellPrice": 5, "Season": ["Spring"] },
-        { "Name": "Pumpkin", "Category": "Seeds", "Quantity": 0, "BuyPrice": 20, "SellPrice": 10, "Season": ["Fall"] },
-        { "Name": "Radish", "Category": "Seeds", "Quantity": 0, "BuyPrice": 7, "SellPrice": 3, "Season": ["Spring", "Summer"] },
-        { "Name": "Sunflower", "Category": "Seeds", "Quantity": 0, "BuyPrice": 18, "SellPrice": 9, "Season": ["Summer", "Fall"] },
-        { "Name": "Wheat", "Category": "Seeds", "Quantity": 0, "BuyPrice": 6, "SellPrice": 3, "Season": ["Summer", "Fall"] },
-
-        { "Name": "Egg", "Category": "Animal Products", "Quantity": 0, "BuyPrice": 10, "SellPrice": 5, "Season": ["Fall", "Winter", "Spring", "Summer"] },
-        { "Name": "Milk", "Category": "Animal Products", "Quantity": 0, "BuyPrice": 20, "SellPrice": 10, "Season": ["Fall", "Winter", "Spring", "Summer"] },
-        { "Name": "Wool", "Category": "Animal Products", "Quantity": 0, "BuyPrice": 15, "SellPrice": 7, "Season": ["Fall", "Winter", "Spring", "Summer"] },
-
-        { "Name": "Shovel", "Category": "Tools", "Quantity": 0, "BuyPrice": 40, "SellPrice": 20, "Season": ["Fall", "Winter", "Spring", "Summer"] },
-        { "Name": "Axe", "Category": "Tools", "Quantity": 0, "BuyPrice": 60, "SellPrice": 30, "Season": ["Fall", "Winter", "Spring", "Summer"] },
-        { "Name": "Pickaxe", "Category": "Tools", "Quantity": 0, "BuyPrice": 70, "SellPrice": 35, "Season": ["Fall", "Winter", "Spring", "Summer"] },
-        { "Name": "Sickle", "Category": "Tools", "Quantity": 0, "BuyPrice": 25, "SellPrice": 12, "Season": ["Fall", "Winter", "Spring", "Summer"] },
-        {"Name": "Watering Can", "Category": "Tools", "Quantity": 0, "BuyPrice": 30, "SellPrice": 15, "Season": ["Fall", "Winter", "Spring", "Summer"] }
+    "Money": 370,
+    "ShopItems": [
+        {
+            "Name": "Beetroot",
+            "Category": "Seeds",
+            "Quantity": 8,
+            "BuyPrice": 10,
+            "SellPrice": 5,
+            "Season": [
+                "Fall",
+                "Winter",
+                "Spring"
+            ]
+        },
+        {
+            "Name": "Cabbage",
+            "Category": "Seeds",
+            "Quantity": 13,
+            "BuyPrice": 12,
+            "SellPrice": 6,
+            "Season": [
+                "Spring",
+                "Summer"
+            ]
+        },
+        {
+            "Name": "Carrot",
+            "Category": "Seeds",
+            "Quantity": 0,
+            "BuyPrice": 8,
+            "SellPrice": 4,
+            "Season": [
+                "Fall",
+                "Winter"
+            ]
+        },
+        {
+            "Name": "Cauliflower",
+            "Category": "Seeds",
+            "Quantity": 9,
+            "BuyPrice": 15,
+            "SellPrice": 7,
+            "Season": [
+                "Spring"
+            ]
+        },
+        {
+            "Name": "Kale",
+            "Category": "Seeds",
+            "Quantity": 11,
+            "BuyPrice": 14,
+            "SellPrice": 7,
+            "Season": [
+                "Winter",
+                "Spring"
+            ]
+        },
+        {
+            "Name": "Parsnip",
+            "Category": "Seeds",
+            "Quantity": 12,
+            "BuyPrice": 9,
+            "SellPrice": 4,
+            "Season": [
+                "Spring"
+            ]
+        },
+        {
+            "Name": "Potato",
+            "Category": "Seeds",
+            "Quantity": 7,
+            "BuyPrice": 11,
+            "SellPrice": 5,
+            "Season": [
+                "Spring"
+            ]
+        },
+        {
+            "Name": "Pumpkin",
+            "Category": "Seeds",
+            "Quantity": 0,
+            "BuyPrice": 20,
+            "SellPrice": 10,
+            "Season": [
+                "Fall"
+            ]
+        },
+        {
+            "Name": "Radish",
+            "Category": "Seeds",
+            "Quantity": 13,
+            "BuyPrice": 7,
+            "SellPrice": 3,
+            "Season": [
+                "Spring",
+                "Summer"
+            ]
+        },
+        {
+            "Name": "Sunflower",
+            "Category": "Seeds",
+            "Quantity": 0,
+            "BuyPrice": 18,
+            "SellPrice": 9,
+            "Season": [
+                "Summer",
+                "Fall"
+            ]
+        },
+        {
+            "Name": "Wheat",
+            "Category": "Seeds",
+            "Quantity": 0,
+            "BuyPrice": 6,
+            "SellPrice": 3,
+            "Season": [
+                "Summer",
+                "Fall"
+            ]
+        },
+        {
+            "Name": "Egg",
+            "Category": "Animal Products",
+            "Quantity": 6,
+            "BuyPrice": 10,
+            "SellPrice": 5,
+            "Season": [
+                "Fall",
+                "Winter",
+                "Spring",
+                "Summer"
+            ]
+        },
+        {
+            "Name": "Milk",
+            "Category": "Animal Products",
+            "Quantity": 9,
+            "BuyPrice": 20,
+            "SellPrice": 10,
+            "Season": [
+                "Fall",
+                "Winter",
+                "Spring",
+                "Summer"
+            ]
+        },
+        {
+            "Name": "Wool",
+            "Category": "Animal Products",
+            "Quantity": 13,
+            "BuyPrice": 15,
+            "SellPrice": 7,
+            "Season": [
+                "Fall",
+                "Winter",
+                "Spring",
+                "Summer"
+            ]
+        },
+        {
+            "Name": "Shovel",
+            "Category": "Tools",
+            "Quantity": 9,
+            "BuyPrice": 40,
+            "SellPrice": 20,
+            "Season": [
+                "Fall",
+                "Winter",
+                "Spring",
+                "Summer"
+            ]
+        },
+        {
+            "Name": "Axe",
+            "Category": "Tools",
+            "Quantity": 12,
+            "BuyPrice": 60,
+            "SellPrice": 30,
+            "Season": [
+                "Fall",
+                "Winter",
+                "Spring",
+                "Summer"
+            ]
+        },
+        {
+            "Name": "Pickaxe",
+            "Category": "Tools",
+            "Quantity": 5,
+            "BuyPrice": 70,
+            "SellPrice": 35,
+            "Season": [
+                "Fall",
+                "Winter",
+                "Spring",
+                "Summer"
+            ]
+        },
+        {
+            "Name": "Sickle",
+            "Category": "Tools",
+            "Quantity": 15,
+            "BuyPrice": 25,
+            "SellPrice": 12,
+            "Season": [
+                "Fall",
+                "Winter",
+                "Spring",
+                "Summer"
+            ]
+        },
+        {
+            "Name": "Watering Can",
+            "Category": "Tools",
+            "Quantity": 9,
+            "BuyPrice": 30,
+            "SellPrice": 15,
+            "Season": [
+                "Fall",
+                "Winter",
+                "Spring",
+                "Summer"
+            ]
+        }
     ],
     "invSave": {
         "slots": [
@@ -53,24 +254,24 @@
                 "quantity": 1
             },
             {
-                "itemID": "Potato",
-                "quantity": 0
+                "itemID": "Sickle",
+                "quantity": 1
             },
             {
-                "itemID": "Radish",
-                "quantity": 0
+                "itemID": "Sickle",
+                "quantity": 1
             },
             {
-                "itemID": "",
-                "quantity": 0
+                "itemID": "Pickaxe",
+                "quantity": 1
             },
             {
-                "itemID": "",
-                "quantity": 0
+                "itemID": "Axe",
+                "quantity": 1
             },
             {
-                "itemID": "",
-                "quantity": 0
+                "itemID": "Egg",
+                "quantity": 1
             },
             {
                 "itemID": "",
