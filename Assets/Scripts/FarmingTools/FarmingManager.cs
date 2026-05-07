@@ -40,13 +40,14 @@ public class FarmingManager : MonoBehaviour
             var slot = inventory.slots[hotbar.selectedIndex];
             if (slot != null && !slot.IsEmpty() && slot.item.itemType == ItemType.Crop)
                 Plant();
-            else if (slot.item.itemType == ItemType.Tool)
+            else if (slot != null && !slot.IsEmpty() && slot.item.itemType == ItemType.Tool)
                 UseTool();
         }
     }
 
     void Plant()
-    {
+    {   
+        Debug.Log(Inventory.Instance.slots[hotbar.selectedIndex].quantity);
         Vector2 mousePos = Mouse.current.position.ReadValue();
         Vector3 worldPos = realCamera.ScreenToWorldPoint(new Vector3(mousePos.x, mousePos.y, 0f));
         worldPos.z = 0;

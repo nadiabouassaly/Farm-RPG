@@ -192,9 +192,14 @@ public class Inventory : MonoBehaviour
         for (int i = 0; i < count; i++)
         {
             var slotData = itemList.invSave.slots[i];
+            if (slotData.quantity == 0)
+            {
+                continue;
+            }
             slots[i].item     = registry != null && !string.IsNullOrEmpty(slotData.itemID) ? registry.GetByID(slotData.itemID) : null;
             slots[i].quantity = slotData.quantity;
         }
+        NotifyChanged();
     }
 
     public void IncreaseMoney(int amount)
