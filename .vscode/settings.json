@@ -67,6 +67,6 @@
         "*.sln": "*.csproj",
         "*.slnx": "*.csproj"
     },
-    "dotnet.defaultSolution": "Farm-RPG-SetD-Integrated.slnx",
+    "dotnet.defaultSolution": "Farm RPG Project version 3.slnx",
     "git.ignoreLimitWarning": true
 }
