@@ -120,11 +120,13 @@ public class FarmingManager : MonoBehaviour
 
             case ToolType.WateringCan:
                 if (tile != null && (tile.state == TileState.Tilled) && GridManager.Instance.tilemap.cellBounds.Contains(cellPos))
+                {
                     if (tile.crop != null)
                     {
                         tile.crop.wateredThisDay = true;
                     }
                     GridManager.Instance.SetTileState(cellPos, TileState.Watered);
+                }
                 break;
 
             case ToolType.Sickle:
